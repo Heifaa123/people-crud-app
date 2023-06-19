@@ -1,0 +1,36 @@
+table {
+    width: 100%;
+    align-items: center;
+    padding: 50; margin-bottom: 1rem;
+    color: #212529;
+    border-collapse: separate;
+    margin: 55px;
+    border-collapse: separate;
+    text-indent: initial;
+    border-spacing: 2px;
+}
+  thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+   
+.en-tete{
+    margin: 55px;
+}
+
+.backgroundClassBlue{
+    background-color: gray;
+    font-size: 20;
+}.colorWhite{
+    color: white;
+    font-size: 20;
+}
+.backgroundClassRed{
+    background-color: pink;
+    font-size: 20;
+}
+button{
+    margin-left: 7px;
+}

@@ -1,0 +1,59 @@
+<div class="container">
+    <form [formGroup]="myForm" (ngSubmit)="saveUser()">
+        <div class="form-row">
+            <div class="form-group col" > 
+                <label for="firstname">Firstname :</label>
+                <input class="form-control" type="text" name="firstname" id="firstname" formControlName="firstname" >
+                <div *ngIf="firstname?.touched  && firstname?.invalid">
+                    <small *ngIf="firstname?.errors?.['required']" class="text-danger">Firstname is requared<br></small>
+                    <small *ngIf="firstname?.errors?.['pattern']" class="text-danger">invalid Firstname<br> </small> 
+                    <small *ngIf="firstname?.errors?.['minlength']" class="text-danger">Firstname must contain two cartacters at least </small>
+                </div>
+            </div>
+           
+        </div>
+        <div class="form-row">
+            <div class="form-group col" > 
+                <input type="submit" value="Send" [disabled]="myForm.invalid" class="btn btn-primary">
+            </div>
+        </div>
+        
+       
+       
+    </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <p>test works!</p>
+<app-navbar></app-navbar>
+<div class="container">
+     <p>hello {{name}}</p>
+    <img [src]="imageUrl" alt="logo" width="100px" align="center">
+    <button (click)="hello(name)" class="btn btn-info">click</button> -->
+<!-- </div>
+
+<hr>
+<ul *ngFor="let user of usersList">
+    <li>{{user?.name}}</li>
+</ul>
+<app-footer></app-footer> --> 

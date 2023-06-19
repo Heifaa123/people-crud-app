@@ -1,0 +1,76 @@
+<app-navbar></app-navbar>
+<div class="row">
+  <div class="col">
+      <h1><b>People List</b></h1>
+      <button type="button" class="btn btn-primary m-3" [routerLink]="['/add-user']">Add</button>
+  </div> 
+</div>
+  <div *ngIf="list.length==0" class="alert alert-warning">No People found</div>
+  <div>
+        <table *ngIf="list.length>0" class="table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>id</th>
+              <th>Firstname</th>
+              <th>Lastname</th>
+              <th>phone</th>
+            </tr>
+          </thead>
+          <tbody >
+            <ng-container  *ngFor="let item of list;let i = index" >
+              
+              <tr  [ngClass]="{
+                'backgroundClassBlue':item.id>3,
+                'colorWhite':item.Firstname=='Heifa',
+                backgroundClassRed:item.id<=3
+              }">
+                <!-- <tr [ngClass]="item.id>3?'backgroundClassBlue':'backgroundClassRed'" > -->
+                  <td>{{i}}</td>
+                    <!-- [ngClass]="list.age>condition ? 'backgroundClassBlue':'backgroundClassRed'">{list.firstName}-->
+                  <td>{{item.id}}</td>
+                  <!-- [ngClass]="list.age>condition ? 'backgroundClassBlue':'backgroundClassRed'">{list.firstName}-->
+                  <td >{{item.Firstname}}</td>
+                <!--*ngIf="item.id< 3" -->
+         
+                <td>{{item.Lastname| uppercase}}</td>
+                <td>{{item.Phone}}</td>
+                <td>
+                  <button class="btn btn-info">Dtails</button> 
+                  <button class="btn btn-danger" (click)="delete(item.id, i )"> Delete</button>
+                  <button class="btn btn-warning" [routerLink]="['/update-user',item.id]">Update</button>
+                </td>
+                <!--  ___________________ng-template avec *ngIf_____________________ -->
+                          <div *ngIf="item.id< 3 elseblok" class="display-hello">Hello World!</div>
+                          <!--after conversion-->
+                          <ng-template  [ngIf]="item.id< 3">
+                              <div class="desplay-hello">Hello world!</div>
+                          </ng-template>
+                <!-- ___________________________ng-template with *ngFor ___________________-->
+                <!-- <div
+                    *ngFor="let order of orders; 
+                            let x=list; 
+                            let main=main; 
+                            trackBy: trackById">
+                  ({{x}}) {{order.id}}
+                </div>
+
+                  <ng-template 
+                    ngFor let-order [ngForOf]="orders" 
+                    let-x="list" 
+                    let-main="main"
+                    [ngForTrackBy]="trackById">
+                  <div>({{x}}) {{order.id}}</div>
+                  </ng-template> -->
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+  </div>
+
+
+<!-- <div>How to define a template using ng-template</div>
+<ng-template><p>Ng Template contents</p></ng-template>  -->
+
+<!-- <app-footer></app-footer> -->
+<app-footer></app-footer>
